@@ -1,0 +1,52 @@
+{
+  "name": "singleapp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "start.ts",
+  "directories": {
+    "lib": "lib"
+  },
+  "dependencies": {
+    "@types/react-router-dom": "^5.1.5",
+    "antd": "^4.6.3",
+    "ejs": "^3.1.5",
+    "koa": "^2.13.0",
+    "koa-static": "^5.0.0",
+    "koa-views": "^6.3.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-router-dom": "^5.2.0",
+    "single-spa": "^5.5.5",
+    "single-spa-react": "^3.0.1"
+  },
+  "devDependencies": {
+    "@types/koa": "^2.11.4",
+    "@types/koa-views": "^2.0.4",
+    "@types/node": "^14.6.4",
+    "@types/react": "^16.9.49",
+    "@types/react-dom": "^16.9.8",
+    "css-loader": "^4.3.0",
+    "html-webpack-plugin": "^4.4.1",
+    "less": "^3.12.2",
+    "less-loader": "^7.0.1",
+    "rimraf": "^3.0.2",
+    "style-loader": "^1.2.1",
+    "ts-loader": "^8.0.3",
+    "ts-node": "^9.0.0",
+    "typescript": "^4.0.2",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0",
+    "webpack-merge": "^5.1.4"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "pm2 start --interpreter ./node_modules/.bin/ts-node ./start.ts",
+    "build": "browserify ./src/Main.js  -o src/_/bundle.js",
+    "clean": "rimraf start.js ./src/*.js ./src/**/*.js ./src/**/*.js.map",
+    "dev": "tsc -w -p ./tsconfig.json",
+    "wp": "export NODE_ENV=development && webpack-dev-server --config ./build/webpack.dev.js"
+  },
+  "author": "",
+  "license": "ISC"
+}

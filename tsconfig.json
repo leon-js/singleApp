@@ -1,0 +1,39 @@
+{
+  "types": [
+    "node"
+  ],
+  "compilerOptions": {
+    "module": "es2020",
+    "target": "es6",
+    "lib": [
+      "dom",
+      "es6",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": true, // 允许编译javascript文件
+    "noImplicitAny": false, // 在表达式和声明上有隐含的 any类型时报错。
+    "skipLibCheck": true, // 忽略所有的声明文件（ *.d.ts）的类型检查。
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true, // 禁止对同一个文件的不一致的引用。
+    "moduleResolution": "node",
+    "resolveJsonModule": true, // 所有文件必须是模块
+    "isolatedModules": true, // 将每个文件作为单独的模块
+    "noEmit": false, // 不生成输出文件
+    "rootDir": "./src",
+    "jsx": "react",
+    "baseUrl": ".",
+    "paths": {
+      "@": ["src"],
+      "@config": ["src/config/"]
+    }
+  },
+  "exclude": [
+    "./node_modules",
+    "./build"
+  ]
+}

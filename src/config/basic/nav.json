@@ -1,0 +1,64 @@
+{
+    "menu": [
+      {
+        "type": "mi",
+        "title": "home",
+        "icon": "HomeOutlined",
+        "path": "/",
+        "app": "AppHome"
+      },
+      {
+        "type": "mi",
+        "title": "Option 1",
+        "icon": "PieChartOutlined",
+        "path": "/a"
+      },
+      {
+        "type": "mi",
+        "title": "Option 2",
+        "icon": "DesktopOutlined",
+        "path": "/b"
+      },
+      {
+        "type": "sm",
+        "title": "user",
+        "icon": "UserOutlined",
+        "path": "/c",
+        "items": [
+          {
+            "type": "mi",
+            "title": "Tom",
+            "path": "/c/d"
+          },
+          {
+            "type": "mi",
+            "title": "Bill",
+            "path": "/c/e"
+          },
+          {
+            "type": "mi",
+            "title": "Alex",
+            "path": "/c/f"
+          }
+        ]
+      },
+      {
+        "type": "sm",
+        "title": "Team",
+        "icon": "TeamOutlined",
+        "path": "/g",
+        "items": [
+          {
+            "type": "mi",
+            "title": "Team 1",
+            "path": "/g/h"
+          },
+          {
+            "type": "mi",
+            "title": "Team 2",
+            "path": "/g/i"
+          }
+        ]
+      }
+    ]
+  }
