@@ -18,7 +18,7 @@ const resolve = dir => path.resolve(__dirname, dir);
 // })
 
 module.exports = merge(commonCfg, {
-  entry: './src/main.js',
+  entry: './src/main.tsx',
   output: {
     path: resolve('../src/_'),
     filename: './bundle.js',
