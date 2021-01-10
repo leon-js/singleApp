@@ -1,5 +1,14 @@
 {
-  "local": {
-    "AppHome": "http://127.0.0.1:7777/index.js"
+  "development": {
+    "LeonHome": {
+      "path": "#/home",
+      "src": "http://127.0.0.1:7777/bundle.js",
+      "exact": true
+    },
+    "LeonBookkeeping": {
+      "path": "#/bookkeeping",
+      "src": "http://127.0.0.1:7777/bundle2.js",
+      "exact": true
+    }
   }
 }

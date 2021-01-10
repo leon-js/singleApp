@@ -18,6 +18,7 @@ const resolve = dir => path.resolve(__dirname, dir);
 // })
 
 module.exports = merge(commonCfg, {
+  mode: 'development',
   entry: './src/main.tsx',
   output: {
     path: resolve('../src/_'),
@@ -30,7 +31,12 @@ module.exports = merge(commonCfg, {
     inline: true,
     hot: true
   },
-  devtool: 'inline-source-map',
+  // devtool: 'inline-source-map',
+  devtool: 'cheap-module-inline-source-map',
+  // devtool: false,
+  // devtool: 'cheap-module-eval-source-map',
+  // 开发环境: cheap-module-eval-source-map
+  // 线上环境: cheap-module-source-map
   resolve: {
     // 设置别名
     alias: {

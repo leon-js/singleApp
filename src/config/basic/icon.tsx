@@ -1,18 +1,11 @@
 import React from 'react'
-import {
-    HomeOutlined,
-    UserOutlined,
-    TeamOutlined,
-    DesktopOutlined,
-    PieChartOutlined,
-} from '@ant-design/icons'
+import { HomeOutlined, AccountBookOutlined } from '@ant-design/icons'
 
-const iconMap = {
+const iconMap: {
+    [key: string]: JSX.Element
+} = {
     'HomeOutlined': <HomeOutlined />,
-    'UserOutlined': <UserOutlined />,
-    'TeamOutlined': <TeamOutlined />,
-    'DesktopOutlined': <DesktopOutlined />,
-    'PieChartOutlined': <PieChartOutlined />,
+    'AccountBookOutlined': <AccountBookOutlined />
 }
 
 export default iconMap

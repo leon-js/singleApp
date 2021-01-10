@@ -6,6 +6,18 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPl
 
 
 module.exports = {
+  externals: [{
+    'React': 'React',
+    'react': 'React',
+    'react-dom': {
+      'commonjs': 'react-dom',
+      'commonjs2': 'react-dom',
+      'amd': 'react-dom',
+      'root': 'ReactDOM'
+    },
+    'antd': 'antd',
+    '@ant-design/icons': 'icons',
+  }],
   resolve: {
     extensions: ['.js', '.jsx', '.ts', '.tsx'],                // 引入文件可以省略这四种后缀
     alias: {}                                                  // 设置路径
@@ -45,6 +57,17 @@ module.exports = {
                 //['@babel/preset-env', { useBuiltIns: 'usage', corejs: 2 }]
               ],
               plugins: [
+                // ["import",{
+                //   "libraryName":"antd",
+                //   "libraryDirectory":"es",
+                //   "style":"css"
+                //   }],
+                // ["import", {
+                //   "libraryName": "@ant-design/icons",
+                //   "style": false,
+                //   "libraryDirectory": "es/icons",
+                //   "camel2DashComponentName": false
+                // }, "@ant-design/icons"],
                 ['@babel/plugin-proposal-class-properties', {'loose': true}]
               ],
               cacheDirectory: true

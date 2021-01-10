@@ -1,13 +1,24 @@
 import React from 'react'
 import ReactDom from 'react-dom'
-import { HashRouter } from "react-router-dom"
+import { HashRouter } from 'react-router-dom'
 import App from './app'
-import 'antd/dist/antd.css'
+// import 'antd/dist/antd.css'
 import './main.less'
 
-import { registerApplication, start } from 'single-spa'
+import subAppConfig from './config/basic/app.json'
 
-const SystemJS = (window as any).System
+// import { registerApplication, start } from 'single-spa'
+import { loadSubApp } from './utils'
+
+// const SystemJS = (window as any).System
+
+// const Render = () => {
+//   return (
+//     <HashRouter>
+//       <App />
+//     </HashRouter>
+//   )
+// }
 
 const Render = () => {
   return (
@@ -18,6 +29,7 @@ const Render = () => {
 }
 
 const init = async () => {
+  loadSubApp(subAppConfig, {})
   // await SystemJS.import(`http://192.168.1.121:8080/bundle.js?v=${new Date()}`).then(res => {
   //   console.log(res, 'res')
   // })
@@ -29,7 +41,11 @@ const init = async () => {
 
   // 当url前缀为 /react的时候.返回 true (底层路由)
   // const activityFunction = location => location.pathname.startsWith('/react')
-  const activityFunction = (location: { hash: string }) => location.hash.startsWith('#/a')
+
+
+  // const activityFunction = (location: { hash: string }) => {
+  //   return location.hash.startsWith('#/a')
+  // }
 
   
 
@@ -41,10 +57,107 @@ const init = async () => {
   //   return result
   // }, activityFunction);
 
-  registerApplication('react', async () => SystemJS.import(`http://172.17.216.7:8080/bundle.js?v=${new Date()}`), activityFunction);
+  // registerApplication('react', async () => {
+  //   // console.log(4444)
+    
+  //   // return SystemJS.import(`http://localhost:7777/bundle.js?v=${new Date().valueOf()}`).then(res => {
+  //   //   console.log(res, 'res')
+  //   // })
+  //   return {
+  //     bootstrap: () => {
+  //       return Promise.resolve()
+  //     }, //bootstrap function
+  //     mount: () => {
+  //       // if (document && document.getElementById('app')) {
+  //       //   // let dom = document.createElement('div')
+  //       //   // dom.innerHTML = '大家好 这里是#/a'
+  //       //   // document.getElementById('app').replaceChild(dom)
+  //       //   // console.log(document.getElementById('app'), 333)
+          
+  //       // }
 
-  //singleSpa 启动
-  start();
+  //       const Dom = () => {
+  //         return (
+  //           <div>大家好 这里是#/a</div>
+  //         )
+  //       }
+  //       ReactDom.render(<Dom />, document.getElementById('app'))
+        
+  //       return Promise.resolve()
+  //     }, //mount function
+  //     unmount: () => {
+  //       ReactDom.unmountComponentAtNode(document.getElementById('app'))
+  //       return Promise.resolve()
+  //     }, //unmount function
+  //   }
+  //   // return SystemJS.import(`http://172.17.216.7:8080/bundle.js?v=${new Date()}`)
+  // }, (location: { hash: string }) => {
+  //   return location.hash.startsWith('#/a')
+  // });
+
+  // registerApplication('react2', async () => {
+  //   // console.log(4444)
+    
+  //   // return SystemJS.import(`http://localhost:7777/bundle.js?v=${new Date().valueOf()}`).then(res => {
+  //   //   console.log(res, 'res')
+  //   // })
+  //   return {
+  //     bootstrap: () => {
+  //       return Promise.resolve()
+  //     }, //bootstrap function
+  //     mount: () => {
+  //       // if (document && document.getElementById('app')) {
+  //       //   // let dom = document.createElement('div')
+  //       //   // dom.innerHTML = 'helloworld 这里是#/b'
+  //       //   // document.getElementById('app').replaceWith(dom)
+          
+  //       // }
+        
+  //       const Dom = () => {
+  //         return (
+  //           <div>helloworld 这里是#/b</div>
+  //         )
+  //       }
+  //       ReactDom.render(<Dom />, document.getElementById('app'))
+
+  //       return Promise.resolve(1)
+  //     }, //mount function
+  //     unmount: () => {
+  //       ReactDom.unmountComponentAtNode(document.getElementById('app'))
+  //       return Promise.resolve()
+  //     }, //unmount function
+  //   }
+  //   // return SystemJS.import(`http://172.17.216.7:8080/bundle.js?v=${new Date()}`)
+  // }, (location: { hash: string }) => {
+  //   return location.hash.startsWith('#/b')
+  // });
+
+  // registerApplication('react3', async () => {
+  //   // console.log(4444)
+    
+  //   // return SystemJS.import(`http://localhost:7777/bundle.js?v=${new Date().valueOf()}`).then(res => {
+  //   //   console.log(res, 'res')
+  //   // })
+
+  //   // return SystemJS.import(`http://127.0.0.1:7777/bundle.js?v=${new Date().valueOf()}`).then(res => {
+  //   //   // console.log(res, 'res react3')
+  //   //   // return res.default
+  //   //   return window['react3']
+  //   // })
+
+  //   const res = await SystemJS.import(`http://127.0.0.1:7777/bundle.js?v=${new Date().valueOf()}`).then(res => {
+  //     // console.log(res, 'res react3')
+  //     // return res.default
+  //     return window['react3']
+  //   })
+  //   return res
+
+  // }, (location: { hash: string }) => {
+  //   return location.hash.startsWith('#/g/h')
+  // });
+
+  // //singleSpa 启动
+  // start();
 
   ReactDom.render(<Render />, document.getElementById('_singleApp'))
 }
